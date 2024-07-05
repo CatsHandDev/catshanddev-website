@@ -1,5 +1,6 @@
 import React from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
+import TextFieldMUI from '@mui/material/TextField'
 
 export const TextField = (props: { label: any; }) => {
   const { control } = useFormContext();
@@ -13,7 +14,7 @@ export const TextField = (props: { label: any; }) => {
         required: { value: true, message: 'input required' }
       }}
       render={({ field, formState: { errors } }) => (
-        <TextField
+        <TextFieldMUI
           {...field}
           label={props.label}
           fullWidth
