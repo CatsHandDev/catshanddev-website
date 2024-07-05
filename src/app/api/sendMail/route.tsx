@@ -2,7 +2,7 @@ import React from 'react'
 import { NextResponse } from 'next/server'
 import nodeMailer from 'nodemailer'
 
-export async function POST(request: { json: () => any; }) {
+export async function POST(request: NextResponse) {
   const reqBody = await request.json();
   const { email, name, message } = reqBody;
 
