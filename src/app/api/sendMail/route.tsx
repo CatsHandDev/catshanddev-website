@@ -1,5 +1,5 @@
 import React from 'react'
-import { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import nodeMailer from 'nodemailer'
 
 export async function POST(request: NextRequest) {
