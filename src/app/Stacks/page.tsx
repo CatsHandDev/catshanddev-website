@@ -20,7 +20,11 @@ const Page = () => {
                 <ul className={styles.stackUl}>
                   {prevStacks.stack.map((prevStack: any, key: any) => (
                     <li key={key}>
-                      <Link href={prevStack.url} target='_blank' rel='noopener noreferrer'>
+                      <Link
+                        href={prevStack.url}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
                         <Image src={prevStack.photo} width={50} height={50} alt={prevStack.name}/>
                         <p>{prevStack.name}</p>
                       </Link>
@@ -114,6 +118,16 @@ const stacks = [
         'photo': '/Firebase.svg',
         'url': 'https://firebase.google.com/?hl=ja'
       }
+    ]
+  },
+  {
+    'title': 'AI',
+    'stack': [
+      {
+        'name': 'chatGPT',
+        'photo': '/chatGPT.png',
+        'url': 'https://chatgpt.com/'
+      },
     ]
   },
 ]

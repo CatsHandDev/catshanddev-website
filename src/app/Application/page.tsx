@@ -18,7 +18,10 @@ const Page = () => {
             >
               <Link
                 className={styles.linkWrapper}
-                href={application.url}>
+                href={application.url}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 <Image
                   className={styles.image}
                   width={200}
