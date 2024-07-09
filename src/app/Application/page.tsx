@@ -18,7 +18,7 @@ const Page = () => {
             >
               <Link
                 className={styles.linkWrapper}
-                href=''>
+                href={application.url}>
                 <Image
                   className={styles.image}
                   width={200}
