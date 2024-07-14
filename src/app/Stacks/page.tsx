@@ -124,38 +124,17 @@ const stacks = [
     'title': 'AI',
     'stack': [
       {
-        'name': 'chatGPT',
+        'name': 'ChatGPT',
         'photo': '/chatGPT.png',
         'url': 'https://chatgpt.com/'
+      },
+      {
+        'name': 'Claude',
+        'photo': '/claude-ai-icon.webp',
+        'url': 'https://claude.ai/new'
       },
     ]
   },
 ]
 
-const stack = [
-  {
-    'title': 'Stop Watch',
-    'image': '/stopwatch.png',
-    'description': 'This app is a stop watch.',
-    'url': 'https://stop-watch-nu-ecru.vercel.app/'
-  },
-  {
-    'title': 'Pomodoro Timer',
-    'image': '/pomodoro.png',
-    'description': 'This app is a pomodoro timer.',
-    'url': 'https://pomodoro-timer-black.vercel.app/'
-  },
-  {
-    'title': 'application03',
-    'image': src,
-    'description': 'description',
-    'url': ''
-  },
-  {
-    'title': 'application04',
-    'image': src,
-    'description': 'description',
-    'url': ''
-  }
-]
 export default Page
