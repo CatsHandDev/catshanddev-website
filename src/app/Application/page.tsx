@@ -54,10 +54,10 @@ const applications = [
     'url': 'https://pomodoro-timer-black.vercel.app/'
   },
   {
-    'title': 'application03',
-    'image': src,
-    'description': 'description',
-    'url': ''
+    'title': 'Utility App',
+    'image': '/utilityApp.png',
+    'description': 'Web app for mobile',
+    'url': 'https://app-portal-chi.vercel.app/'
   }
 ]
 
