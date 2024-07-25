@@ -44,13 +44,13 @@ const website = [
   {
     'title': 'website01',
     'image': '/fakeSite01.png',
-    'description': 'This site is a fake site',
+    'description': 'This site is a fake site. Made for production training.',
     'url': 'https://applications-106b1.web.app/'
   },
   {
     'title': 'website02',
     'image': '/fakeSite02.png',
-    'description': 'This site is a fake site',
+    'description': 'This site is a fake site. Made for production training.',
     'url': 'https://website02-eight.vercel.app/'
   },
   {

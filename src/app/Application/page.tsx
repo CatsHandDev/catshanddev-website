@@ -44,19 +44,19 @@ const applications = [
   {
     'title': 'Stop Watch',
     'image': '/stopwatch.png',
-    'description': 'This app is a stop watch.',
+    'description': 'This app is a stop watch. Made for production training.',
     'url': 'https://stop-watch-nu-ecru.vercel.app/'
   },
   {
     'title': 'Pomodoro Timer',
     'image': '/pomodoro.png',
-    'description': 'This app is a pomodoro timer.',
+    'description': 'This app is a pomodoro timer. Made for production training.',
     'url': 'https://pomodoro-timer-black.vercel.app/'
   },
   {
     'title': 'Utility App',
     'image': '/utilityApp.png',
-    'description': 'Web app for mobile',
+    'description': 'Web app for mobile.',
     'url': 'https://app-portal-chi.vercel.app/'
   }
 ]
