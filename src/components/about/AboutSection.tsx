@@ -15,8 +15,8 @@ export const AboutSection = () => {
               About Me
             </h2>
             <p>
-              I'm a web engineer with 3+ years of experience building modern web applications.
-              I specialize in React, Node.js, and cloud technologies.
+              I'm a web engineer and programmer with 3+ years of experience building modern web applications.
+              I specialize in React, python, Node.js, and cloud technologies.
             </p>
             <p>
               When I'm not coding, you'll find me contributing to open source projects,

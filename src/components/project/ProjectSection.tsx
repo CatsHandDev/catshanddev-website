@@ -5,11 +5,13 @@ import { FaCode } from 'react-icons/fa';
 import { FiExternalLink } from 'react-icons/fi';
 import Link from 'next/link';
 import Image from 'next/image';
+import { FaGithubAlt } from 'react-icons/fa';
 
 const data = [
   {
     'name': 'Taishin Co., Ltd. Web Site',
     'url': 'https://taishin1977.jp/#',
+    'github': '',
     'photo': '',
     'description': 'A full-stack web application built with Next.js, postgres, and Xserver. Management is currently being transferred.',
     'stacks': [
@@ -21,6 +23,7 @@ const data = [
   {
     'name': 'Taishin Co., Ltd. E-Commerce',
     'url': 'https://www.taneha-honten.com/',
+    'github': '',
     'photo': '',
     'description': 'Created using html, css, and javascript on the makeshop platform.',
     'stacks': [
@@ -32,6 +35,7 @@ const data = [
   {
     'name': 'Utility App for mobile',
     'url': 'https://app-portal-chi.vercel.app/',
+    'github': 'https://github.com/CatsHandDev/app-portal',
     'photo': '',
     'description': 'I was interested in mobile app development and developed a simple mobile app in a familiar environment before starting.',
     'stacks': [
@@ -42,6 +46,7 @@ const data = [
   {
     'name': 'StopWatch App for mobile',
     'url': 'https://advanced-stop-watch.vercel.app/',
+    'github': 'https://github.com/CatsHandDev/AdvancedStopWatch',
     'photo': '',
     'description': 'Developed for your own training.',
     'stacks': [
@@ -76,7 +81,7 @@ export const ProjectSection = () => {
                       rel='noopener noreferrer'
                       target='_blank'
                     >
-                      <FiExternalLink size={24} />
+                      <FiExternalLink size={22} />
                     </Link>
                   </div>
                 </div>
@@ -88,10 +93,21 @@ export const ProjectSection = () => {
                 </div>
               </div>
 
-              <div className={styles.tags}>
-                {project.stacks.map((stack) => (
-                  <span key={index}>{stack}</span>
-                ))}
+              <div className={styles.tagContainer}>
+                <div className={styles.tags}>
+                  {project.stacks.map((stack) => (
+                    <span key={index}>{stack}</span>
+                  ))}
+                </div>
+                {project.github && (
+                  <Link
+                    href={project.github}
+                    rel='noopener noreferrer'
+                    target='_blank'
+                  >
+                    <FaGithubAlt size={24} />
+                  </Link>
+                )}
               </div>
             </div>
           ))}
