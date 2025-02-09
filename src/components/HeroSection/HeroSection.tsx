@@ -16,7 +16,7 @@ export const HeroSection = () => {
             Cat's Hand .DEV
           </h1>
           <p className={styles.heroSubtitle}>
-            Full Stack Web Engineer, <br />programmer
+            Full Stack Web Engineer, <br />Programmer
           </p>
           <div className={styles.socialLinks}>
             <Link
