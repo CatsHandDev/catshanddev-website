@@ -33,11 +33,7 @@ export const HeroSection = () => {
             >
               <BsTwitterX size={30} />
             </Link>
-            <Link
-              href='mailto:contact@example.com'
-              rel='noopener noreferrer'
-              target='_blank'
-            >
+            <Link href='/Contact'>
               <MdOutlineMailOutline size={30} />
             </Link>
           </div>
