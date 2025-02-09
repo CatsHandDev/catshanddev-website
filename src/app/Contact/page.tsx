@@ -22,6 +22,8 @@ function Contact() {
   });
   const [showModal, setShowModal] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -39,15 +41,39 @@ function Contact() {
     setShowModal(true);
   };
 
-  const handleConfirmSubmit = () => {
-    console.log('Submitting form data:', formData);
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
+  const handleConfirmSubmit = async () => {
+    setIsLoading(true);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch('/api/sendMail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to send email');
+      }
+
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Sending error:', error);
+      setSubmitError(error instanceof Error ? error.message : 'Failed to send email');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleCloseModal = () => {
     setShowModal(false);
     setIsSubmitted(false);
+    setSubmitError(null);
   };
 
   return (
@@ -148,19 +174,31 @@ function Contact() {
                   </div>
                 </div>
 
+                {submitError && (
+                  <p className={styles.errorMessage}>{submitError}</p>
+                )}
+
                 <div className={styles.modalButtons}>
                   <button
                     onClick={handleCloseModal}
                     className={`${styles.button} ${styles.editButton}`}
+                    disabled={isLoading}
                   >
                     Edit
                   </button>
                   <button
                     onClick={handleConfirmSubmit}
                     className={`${styles.button} ${styles.confirmButton}`}
+                    disabled={isLoading}
                   >
-                    <IoIosSend size={20} />
-                    Submit
+                    {isLoading ? (
+                      'Sending...'
+                    ) : (
+                      <>
+                        <IoIosSend size={20} />
+                        Submit
+                      </>
+                    )}
                   </button>
                 </div>
               </>
@@ -169,10 +207,10 @@ function Contact() {
                 <h2 className={styles.modalTitle}>Thank you for your message!</h2>
                 <p className={styles.submittedText}>We will get back to you soon.</p>
                 <button
-                    onClick={handleCloseModal}
-                    className={`${styles.button} ${styles.confirmButton}`}
-                  >
-                    Close
+                  onClick={handleCloseModal}
+                  className={`${styles.button} ${styles.confirmButton}`}
+                >
+                  Close
                 </button>
               </div>
             )}
