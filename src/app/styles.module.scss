@@ -1,0 +1,45 @@
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.mainWrapper {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #111827, #1f2937);
+  color: white;
+}
+
+.section {
+  padding: 5rem 0;
+
+  &.about {
+    background-color: #1f2937;
+  }
+
+  &.projects {
+    background-color: #111827;
+  }
+
+  &.experience {
+    background-color: #1f2937;
+  }
+
+  &.contact {
+    background-color: #111827;
+  }
+}
+
+.sectionTitle {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  svg {
+    color: #60a5fa;
+  }
+}

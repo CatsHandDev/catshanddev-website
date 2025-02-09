@@ -1,0 +1,46 @@
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.aboutText {
+  flex: 1;
+
+  p {
+    color: #d1d5db;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  flex: 1;
+}
+
+.skillCard {
+  background-color: #374151;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+
+  h3 {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #d1d5db;
+  }
+}

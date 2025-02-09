@@ -1,139 +1,186 @@
 'use client'
-import React, { ChangeEvent, useState } from 'react'
-import globalStyles from '../page.module.css'
+import React, { useState, useEffect } from 'react';
+import { FaRegUser } from 'react-icons/fa';
+import { CiMail } from 'react-icons/ci';
+import { MdOutlineMessage } from "react-icons/md";
+import { IoIosSend } from "react-icons/io";
+import { FaXmark } from "react-icons/fa6";
 import styles from './contact.module.scss';
-import { TextField, Button, Box, Typography } from '@mui/material';
-import { Controller, FormProvider, useForm, UseFormWatch } from 'react-hook-form';
+import { Header } from '@/components/Header/Header';
 
-type FormValues = {
+interface FormData {
   name: string;
   email: string;
   message: string;
-};
+}
 
-const Page = () => {
-  const methods = useForm<FormValues>({});
-  const { register, handleSubmit, formState: { errors }, reset, watch } = methods;
-  const [isConfirm, setIsConfirm] = useState(false);
-  const watchAllFields = watch();
+function Contact() {
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [showModal, setShowModal] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  type FormValues = {
-    name: string;
-    email: string;
-    message: string;
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (isSubmitted) {
+      timer = setTimeout(() => {
+        setShowModal(false);
+        setIsSubmitted(false);
+      }, 3000);
+    }
+    return () => clearTimeout(timer);
+  }, [isSubmitted]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setShowModal(true);
   };
 
-  const onSubmit = async (data: FormValues) => {
-    if (isConfirm) {
-      try {
-        const response = await fetch('/api/sendMail', {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        });
-        reset();
-        setIsConfirm(false);
-      } catch (error) {
-        console.error('メールの送信に失敗しました:', error);
-      }
-    } else {
-      setIsConfirm(true);
-    }
+  const handleConfirmSubmit = () => {
+    console.log('Submitting form data:', formData);
+    setIsSubmitted(true);
+    setFormData({ name: '', email: '', message: '' });
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setIsSubmitted(false);
   };
 
   return (
-    <div className={globalStyles.main}>
-      <h1 className={globalStyles.h1}>Contact</h1>
-      <div className={styles.inputContainer}>
-        <Box>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            {!isConfirm ? (
-              <div className={styles.textFieldContainer}>
-                <TextField
-                  className={styles.textfield}
-                  label='name'
-                  variant='standard'
-                  {...register('name', { required: 'name is require' })}
-                  error={!!errors.name}
-                  helperText={errors.name?.message}
+    <div className={styles.container}>
+      <Header />
+      <div className={styles.innerContainer}>
+        <div className={styles.formWrapper}>
+          <h1 className={styles.title}>
+            Get in Touch
+          </h1>
+
+          <div className={styles.formContainer}>
+            <form onSubmit={handleSubmit}>
+              <div className={styles.formGroup}>
+                <label className={styles.label}>
+                  <FaRegUser size={20} className={styles.labelIcon} />
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  required
+                  className={styles.input}
+                  placeholder="John Doe"
                 />
-                <TextField
-                  className={styles.textfield}
-                  label='email'
-                  variant='standard'
-                  {...register('email', {
-                    required: 'email address is require',
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: 'Please enter a valid email address',
-                    },
-                  })}
-                  error={!!errors.email}
-                  helperText={errors.email?.message}
-                />
-                <TextField
-                  className={styles.textfield}
-                  label='message'
-                  variant='standard'
-                  multiline
-                  rows={6}
-                  {...register('message', { required: 'message is require' })}
-                  error={!!errors.message}
-                  helperText={errors.message?.message}
-                />
-                <Button
-                  className={styles.button}
-                  type='submit'
-                  variant='contained'
-                  color='primary'
-                >
-                  Confirm
-                </Button>
               </div>
+
+              <div className={styles.formGroup}>
+                <label className={styles.label}>
+                  <CiMail size={20} className={styles.labelIcon} />
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
+                  className={styles.input}
+                  placeholder="john@example.com"
+                />
+              </div>
+
+              <div className={styles.formGroup}>
+                <label className={styles.label}>
+                  <MdOutlineMessage size={20} className={styles.labelIcon} />
+                  Your Message
+                </label>
+                <textarea
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  required
+                  rows={5}
+                  className={styles.textarea}
+                  placeholder="Tell us about your message..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                className={`${styles.button} ${styles.submitButton}`}
+              >
+                <IoIosSend size={20} />
+                Confirm Details
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {/* Confirmation Modal */}
+      {showModal && (
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <button
+              onClick={handleCloseModal}
+              className={`${styles.button} ${styles.closeButton}`}
+            >
+              <FaXmark size={24} />
+            </button>
+
+            {!isSubmitted ? (
+              <>
+                <h2 className={styles.modalTitle}>Confirm Your Details</h2>
+
+                <div className={styles.detailsContainer}>
+                  <div className={styles.detailGroup}>
+                    <h3 className={styles.detailLabel}>Name</h3>
+                    <p className={styles.detailText}>{formData.name}</p>
+                  </div>
+                  <div className={styles.detailGroup}>
+                    <h3 className={styles.detailLabel}>Email</h3>
+                    <p className={styles.detailText}>{formData.email}</p>
+                  </div>
+                  <div className={styles.detailGroup}>
+                    <h3 className={styles.detailLabel}>Message</h3>
+                    <p className={styles.detailText}>{formData.message}</p>
+                  </div>
+                </div>
+
+                <div className={styles.modalButtons}>
+                  <button
+                    onClick={handleCloseModal}
+                    className={`${styles.button} ${styles.editButton}`}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={handleConfirmSubmit}
+                    className={`${styles.button} ${styles.confirmButton}`}
+                  >
+                    <IoIosSend size={20} />
+                    Submit
+                  </button>
+                </div>
+              </>
             ) : (
-              <div className={styles.textFieldContainer}>
-                <Typography
-                  className={styles.confirmTitle}
-                  variant='h6'
-                >Confirm input contents
-                </Typography>
-                <Box>
-                  <Typography className={styles.textfield}>
-                    <label className={styles.label}>Name :</label>
-                    <br />
-                    <label className={styles.text}>{watchAllFields.name}</label>
-                  </Typography>
-                  <br />
-                  <Typography className={styles.textfield}>
-                    <label className={styles.label}>Email Address :</label>
-                    <br />
-                    <label className={styles.text}>{watchAllFields.email}</label>
-                  </Typography>
-                  <br />
-                  <Typography className={styles.textfield}>
-                    <label className={styles.label}>Message :</label>
-                    <br />
-                    <label className={styles.text}>{watchAllFields.message}</label>
-                  </Typography>
-                </Box>
-                <Button
-                  className={styles.button}
-                  type='submit'
-                  variant='contained'
-                  color='primary'
-                >
-                  Submit
-                </Button>
+              <div className={styles.submittedContent}>
+                <h2 className={styles.modalTitle}>Thank you for your message!</h2>
+                <p className={styles.submittedText}>We will get back to you soon.</p>
+                <button
+                    onClick={handleCloseModal}
+                    className={`${styles.button} ${styles.confirmButton}`}
+                  >
+                    Close
+                </button>
               </div>
             )}
-          </form>
-        </Box>
-      </div>
+          </div>
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
-export default Page
+export default Contact;

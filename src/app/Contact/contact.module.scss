@@ -1,50 +1,208 @@
 .button {
-  margin-top: 40px;
-  background-color: #fff;
-  border: 1px solid #000;
-  border-radius: 0;
-  color: #000;
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
 
-.confirmTitle {
-  margin-bottom: 40px;
+.container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #111827, #1f2937);
+  color: white;
+  position: relative;
 }
 
-.inputContainer {
-  width: 60%;
+.innerContainer {
+  max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+  padding: 4rem 1rem;
+}
+
+.formWrapper {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  background: linear-gradient(to right, #60a5fa, #2dd4bf);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.formContainer {
+  background-color: #1f2937;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
 }
 
 .label {
-  padding: 0 5px 2px;
-  border-bottom: 1px solid #000;
-  font-size: 1.2rem;
-}
-
-.text {
-  margin-top: 5px;
-  padding-left: 5px;
-  display: block;
-}
-
-.textfield {
-  width: 50ch;
-  margin-bottom: 40px;
-  background-color: #fff;
-}
-
-.textFieldContainer {
-  width: 100%;
-  height: 350px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
+  color: #d1d5db;
+  margin-bottom: 0.5rem;
+}
+
+.labelIcon {
+  color: #60a5fa;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #374151;
+  border: 1px solid #4b5563;
+  color: white;
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: #60a5fa;
+  }
+}
+
+.textarea {
+  @extend .input;
+  resize: none;
+}
+
+.button {
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.submitButton {
+  width: 100%;
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  &:hover {
+    background-color: #2563eb;
+  }
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modalContent {
+  background-color: #1f2937;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  max-width: 28rem;
+  width: 100%;
+  margin: 0 1rem;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  color: #9ca3af;
+  background: none;
+  padding: 0.5rem;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.detailsContainer {
+  margin-bottom: 1.5rem;
+}
+
+.detailGroup {
+  margin-bottom: 1rem;
+}
+
+.detailLabel {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.detailText {
+  color: white;
+  white-space: pre-wrap;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.editButton {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  background-color: #374151;
+  border-radius: 0.5rem;
+  color: #fff;
+
+  &:hover {
+    background-color: #4b5563;
+  }
+}
+
+.confirmButton {
+  margin-top: 2rem;
+  margin-inline: auto;
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  &:hover {
+    background-color: #2563eb;
+  }
+}
+
+.submittedContent {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.submittedText {
+  color: #fff;
+  font-size: 1.125rem;
 }

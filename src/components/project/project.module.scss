@@ -1,0 +1,83 @@
+.projectsGrid {
+  display: grid;
+  gap: 2rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.projectCard {
+  background-color: #1f2937;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .projectImage {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background-color: #374151;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .projectOverlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(#60a5fa, 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+      opacity: 0;
+
+      svg {
+        color: white;
+      }
+    }
+
+    &:hover .projectOverlay {
+      background-color: rgba(#60a5fa, 0.8);
+      opacity: 1;
+    }
+  }
+
+  .projectContent {
+    padding: 1.5rem;
+    padding-bottom: 0;
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #d1d5db;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.tags {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  padding-top: 0;
+
+  span {
+    background-color: #374151;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+  }
+}

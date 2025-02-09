@@ -1,0 +1,29 @@
+.contactContent {
+  text-align: center;
+  max-width: 42rem;
+  margin: 0 auto;
+
+  p {
+    color: #d1d5db;
+    margin-bottom: 2rem;
+  }
+}
+
+.contactTitle {
+  justify-content: center;
+}
+
+.contactButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #60a5fa;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #3b82f6;
+  }
+}
