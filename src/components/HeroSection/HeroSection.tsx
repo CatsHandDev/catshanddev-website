@@ -13,7 +13,7 @@ export const HeroSection = () => {
       <div className={globalStyles.container}>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>
-            Cat's Hand.DEV
+            Cat's Hand .DEV
           </h1>
           <p className={styles.heroSubtitle}>
             Full Stack Web Engineer, <br />programmer
