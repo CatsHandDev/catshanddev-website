@@ -14,7 +14,7 @@ const data = [
     role: 'Personal Developer',
     company: '',
     period: '2004 - 2011',
-    description: 'Developing and providing trading software add-ons using the MQL language to anonymous bulletin board users.',
+    description: 'Developing and providing trading software add-ons using the MQL language to 2channel users.',
   },
   {
     role: 'Personal Developer',
