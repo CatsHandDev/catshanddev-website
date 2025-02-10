@@ -19,8 +19,7 @@ export const AboutSection = () => {
               I specialize in React, python, Node.js, and cloud technologies.
             </p>
             <p>
-              When I'm not coding, you'll find me contributing to open source projects,
-              writing technical articles, and mentoring aspiring developers.
+            My interests are guitar and programming. I especially love accumulating new IT techniques and knowledge.
             </p>
           </div>
           <div className={styles.skillsGrid}>

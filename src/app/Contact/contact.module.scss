@@ -90,6 +90,7 @@
   width: 100%;
   background-color: #3b82f6;
   color: white;
+  font-size: 1rem;
   font-weight: 600;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
@@ -167,11 +168,12 @@
 }
 
 .editButton {
-  flex: 1;
+  margin-top: 2rem;
   padding: 0.5rem 1rem;
   background-color: #374151;
   border-radius: 0.5rem;
   color: #fff;
+  flex: 1;
 
   &:hover {
     background-color: #4b5563;
@@ -185,7 +187,7 @@
   background-color: #3b82f6;
   border-radius: 0.5rem;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1rem;
   display: flex;
   flex: 1;
   align-items: center;

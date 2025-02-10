@@ -101,6 +101,7 @@ export const ProjectSection = () => {
                 </div>
                 {project.github && (
                   <Link
+                    className={styles.githubLink}
                     href={project.github}
                     rel='noopener noreferrer'
                     target='_blank'
