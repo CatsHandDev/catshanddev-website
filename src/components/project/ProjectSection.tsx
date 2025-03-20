@@ -12,7 +12,7 @@ const data = [
     'name': 'Taishin Co., Ltd. Web Site',
     'url': 'https://taishin1977.jp/#',
     'github': '',
-    'photo': '',
+    'image': '',
     'description': 'A full-stack web application built with Next.js, postgres, and Xserver. Management is currently being transferred.',
     'stacks': [
       'Next.js',
@@ -24,7 +24,7 @@ const data = [
     'name': 'Taishin Co., Ltd. E-Commerce',
     'url': 'https://www.taneha-honten.com/',
     'github': '',
-    'photo': '',
+    'image': '',
     'description': 'Created using html, css, and javascript on the makeshop platform.',
     'stacks': [
       'html',
@@ -36,7 +36,7 @@ const data = [
     'name': 'Utility App for mobile',
     'url': 'https://app-portal-chi.vercel.app/',
     'github': 'https://github.com/CatsHandDev/app-portal',
-    'photo': '',
+    'image': '',
     'description': 'I was interested in mobile app development and developed a simple mobile app in a familiar environment before starting.',
     'stacks': [
       'Next.js',
@@ -47,11 +47,21 @@ const data = [
     'name': 'StopWatch App for mobile',
     'url': 'https://advanced-stop-watch.vercel.app/',
     'github': 'https://github.com/CatsHandDev/AdvancedStopWatch',
-    'photo': '',
+    'image': '',
     'description': 'Developed for your own training.',
     'stacks': [
       'React',
       'Vite',
+    ]
+  },
+  {
+    'name': 'StopWatch App for mobile',
+    'url': 'https://gojo-motors.vercel.app/',
+    'github': 'https://github.com/CatsHandDev/gojo-motors',
+    'image': '',
+    'description': 'Developed for your own training.',
+    'stacks': [
+      'Next.js',
     ]
   },
 ];
@@ -69,21 +79,23 @@ export const ProjectSection = () => {
             <div key={index} className={styles.projectCard}>
               <div>
                 <div className={styles.projectImage}>
+                  <Link
+                    href={project.url}
+                    rel='noopener noreferrer'
+                    target='_blank'
+                  >
                   <Image
-                    src={`/photo-1460925895917-afdab827c52f.jpeg`}
+                    src={project.image || `/photo-1460925895917-afdab827c52f.jpeg`}
                     width={800}
                     height={400}
                     alt={project.name}
                   />
                   <div className={styles.projectOverlay}>
-                    <Link
-                      href={project.url}
-                      rel='noopener noreferrer'
-                      target='_blank'
-                    >
+
                       <FiExternalLink size={22} />
-                    </Link>
                   </div>
+                  </Link>
+
                 </div>
                 <div className={styles.projectContent}>
                   <h3>{project.name}</h3>
