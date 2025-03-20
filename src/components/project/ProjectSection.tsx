@@ -55,7 +55,7 @@ const data = [
     ]
   },
   {
-    'name': 'StopWatch App for mobile',
+    'name': 'G-select Co., Ltd. Web site',
     'url': 'https://gojo-motors.vercel.app/',
     'github': 'https://github.com/CatsHandDev/gojo-motors',
     'image': '',
