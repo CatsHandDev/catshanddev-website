@@ -48,7 +48,7 @@ const data = [
     'url': 'https://advanced-stop-watch.vercel.app/',
     'github': 'https://github.com/CatsHandDev/AdvancedStopWatch',
     'image': '',
-    'description': 'Developed for your own training.',
+    'description': 'Developed for my own training.',
     'stacks': [
       'React',
       'Vite',
@@ -59,7 +59,7 @@ const data = [
     'url': 'https://gojo-motors.vercel.app/',
     'github': 'https://github.com/CatsHandDev/gojo-motors',
     'image': '',
-    'description': 'Developed for your own training.',
+    'description': 'Developed for my own training.',
     'stacks': [
       'Next.js',
     ]
