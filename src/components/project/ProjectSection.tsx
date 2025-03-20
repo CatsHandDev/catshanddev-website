@@ -36,7 +36,7 @@ const data = [
     'name': 'Utility App for mobile',
     'url': 'https://app-portal-chi.vercel.app/',
     'github': 'https://github.com/CatsHandDev/app-portal',
-    'image': '',
+    'image': '/multi.png',
     'description': 'I was interested in mobile app development and developed a simple mobile app in a familiar environment before starting.',
     'stacks': [
       'Next.js',
@@ -47,7 +47,7 @@ const data = [
     'name': 'StopWatch App for mobile',
     'url': 'https://advanced-stop-watch.vercel.app/',
     'github': 'https://github.com/CatsHandDev/AdvancedStopWatch',
-    'image': '',
+    'image': '/advance.png',
     'description': 'Developed for my own training.',
     'stacks': [
       'React',
@@ -58,7 +58,7 @@ const data = [
     'name': 'G-select Co., Ltd. Web site',
     'url': 'https://gojo-motors.vercel.app/',
     'github': 'https://github.com/CatsHandDev/gojo-motors',
-    'image': '',
+    'image': 'gselect.png',
     'description': 'Developed for my own training.',
     'stacks': [
       'Next.js',
