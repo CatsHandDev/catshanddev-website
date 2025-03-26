@@ -58,7 +58,7 @@ const data = [
     'name': 'G-select Co., Ltd. Web site',
     'url': 'https://gojo-motors.vercel.app/',
     'github': 'https://github.com/CatsHandDev/gojo-motors',
-    'image': 'gselect.png',
+    'image': '/gselect.png',
     'description': 'Developed for my own training.',
     'stacks': [
       'Next.js',
