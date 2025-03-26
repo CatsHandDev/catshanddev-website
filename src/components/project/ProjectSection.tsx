@@ -64,6 +64,16 @@ const data = [
       'Next.js',
     ]
   },
+  {
+    'name': 'Command Generator',
+    'url': 'https://command-generator-zeta.vercel.app/',
+    'github': 'https://github.com/CatsHandDev/command-generator',
+    'image': '/commandGenerator.png',
+    'description': 'Assists with the complicated installation of libraries for windows.',
+    'stacks': [
+      'Vite',
+    ]
+  },
 ];
 
 export const ProjectSection = () => {
