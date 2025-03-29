@@ -74,6 +74,16 @@ const data = [
       'Vite',
     ]
   },
+  {
+    'name': 'Takiron serial-image-search ',
+    'url': 'https://serial-image-search.vercel.app/',
+    'github': 'https://github.com/CatsHandDev/serial-image-search',
+    'image': '/takiron.png',
+    'description': 'A convenient tool to quickly search and download Takiron product drawings by product code. Boost efficiency in design and construction!',
+    'stacks': [
+      'Vite',
+    ]
+  },
 ];
 
 export const ProjectSection = () => {
