@@ -19,6 +19,11 @@
   flex-direction: column;
   justify-content: space-between;
 
+  .projectWrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
   .projectImage {
     position: relative;
     aspect-ratio: 16 / 9;
@@ -66,6 +71,19 @@
       margin-bottom: 1rem;
     }
   }
+}
+
+.sectionSubtitle {
+  height: 56px;
+  line-height: 56px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-block: 1.5rem 1rem;
+  color: #fff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .tagContainer {

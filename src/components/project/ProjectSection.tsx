@@ -2,13 +2,12 @@ import React from 'react'
 import globalStyles from '@/app/styles.module.scss';
 import styles from './project.module.scss';
 import { FaCode } from 'react-icons/fa';
-import { FiExternalLink } from 'react-icons/fi';
-import Link from 'next/link';
-import Image from 'next/image';
-import { FaGithubAlt } from 'react-icons/fa';
+import { ProjectCard } from './ProjectCard';
+import { CgWebsite } from "react-icons/cg";
 
 const data = [
   {
+    'type': 'site',
     'name': 'Taishin Co., Ltd. Web Site',
     'url': 'https://taishin1977.jp/#',
     'github': '',
@@ -21,6 +20,7 @@ const data = [
     ]
   },
   {
+    'type': 'site',
     'name': 'Taishin Co., Ltd. E-Commerce',
     'url': 'https://www.taneha-honten.com/',
     'github': '',
@@ -33,6 +33,7 @@ const data = [
     ]
   },
   {
+    'type': 'app',
     'name': 'Utility App for mobile',
     'url': 'https://app-portal-chi.vercel.app/',
     'github': 'https://github.com/CatsHandDev/app-portal',
@@ -44,6 +45,7 @@ const data = [
     ]
   },
   {
+    'type': 'app',
     'name': 'StopWatch App for mobile',
     'url': 'https://advanced-stop-watch.vercel.app/',
     'github': 'https://github.com/CatsHandDev/AdvancedStopWatch',
@@ -55,6 +57,7 @@ const data = [
     ]
   },
   {
+    'type': 'site',
     'name': 'G-select Co., Ltd. Web site',
     'url': 'https://gojo-motors.vercel.app/',
     'github': 'https://github.com/CatsHandDev/gojo-motors',
@@ -65,6 +68,7 @@ const data = [
     ]
   },
   {
+    'type': 'app',
     'name': 'Command Generator',
     'url': 'https://command-generator-zeta.vercel.app/',
     'github': 'https://github.com/CatsHandDev/command-generator',
@@ -75,6 +79,7 @@ const data = [
     ]
   },
   {
+    'type': 'app',
     'name': 'Takiron serial-image-search ',
     'url': 'https://serial-image-search.vercel.app/',
     'github': 'https://github.com/CatsHandDev/serial-image-search',
@@ -94,55 +99,37 @@ export const ProjectSection = () => {
           <FaCode />
           Featured Projects
         </h2>
+        <h3 className={styles.sectionSubtitle}>
+          <CgWebsite size={30} />
+          Web Site
+        </h3>
         <div className={styles.projectsGrid}>
           {data.map((project, index) => (
-            <div key={index} className={styles.projectCard}>
-              <div>
-                <div className={styles.projectImage}>
-                  <Link
-                    href={project.url}
-                    rel='noopener noreferrer'
-                    target='_blank'
-                  >
-                  <Image
-                    src={project.image || `/photo-1460925895917-afdab827c52f.jpeg`}
-                    width={800}
-                    height={400}
-                    alt={project.name}
-                  />
-                  <div className={styles.projectOverlay}>
-
-                      <FiExternalLink size={22} />
-                  </div>
-                  </Link>
-
-                </div>
-                <div className={styles.projectContent}>
-                  <h3>{project.name}</h3>
-                  <p>
-                    {project.description}
-                  </p>
-                </div>
+            project.type === 'site' && (
+              <div key={index}>
+                <ProjectCard
+                  project={project}
+                  index={index}
+                />
               </div>
+            )
+          ))}
+        </div>
 
-              <div className={styles.tagContainer}>
-                <div className={styles.tags}>
-                  {project.stacks.map((stack) => (
-                    <span key={index}>{stack}</span>
-                  ))}
-                </div>
-                {project.github && (
-                  <Link
-                    className={styles.githubLink}
-                    href={project.github}
-                    rel='noopener noreferrer'
-                    target='_blank'
-                  >
-                    <FaGithubAlt size={24} />
-                  </Link>
-                )}
+        <h3 className={styles.sectionSubtitle}>
+          <CgWebsite size={30} />
+          Applications
+        </h3>
+        <div className={styles.projectsGrid}>
+          {data.map((project, index) => (
+            project.type === 'app' && (
+              <div key={index}>
+                <ProjectCard
+                  project={project}
+                  index={index}
+                />
               </div>
-            </div>
+            )
           ))}
         </div>
       </div>
