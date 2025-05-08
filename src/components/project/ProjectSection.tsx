@@ -80,11 +80,22 @@ const data = [
   },
   {
     'type': 'app',
-    'name': 'Takiron serial-image-search ',
+    'name': 'Takiron serial-image-search',
     'url': 'https://serial-image-search.vercel.app/',
     'github': 'https://github.com/CatsHandDev/serial-image-search',
     'image': '/takiron.png',
     'description': 'A convenient tool to quickly search and download Takiron product drawings by product code. Boost efficiency in design and construction!',
+    'stacks': [
+      'Vite',
+    ]
+  },
+  {
+    'type': 'app',
+    'name': 'okozukai app',
+    'url': 'https://budget-app-sepia-iota.vercel.app/',
+    'github': 'https://github.com/CatsHandDev/budget-app',
+    'image': '/okozukai.jpg',
+    'description': 'Decide your daily allowance and enjoy shopping!',
     'stacks': [
       'Vite',
     ]
