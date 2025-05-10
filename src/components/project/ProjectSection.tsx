@@ -75,6 +75,7 @@ const data = [
     'image': '/commandGenerator.png',
     'description': 'Assists with the complicated installation of libraries for windows.',
     'stacks': [
+      'React',
       'Vite',
     ]
   },
@@ -86,6 +87,7 @@ const data = [
     'image': '/takiron.png',
     'description': 'A convenient tool to quickly search and download Takiron product drawings by product code. Boost efficiency in design and construction!',
     'stacks': [
+      'React',
       'Vite',
     ]
   },
@@ -97,6 +99,7 @@ const data = [
     'image': '/okozukai.jpg',
     'description': 'Decide your daily allowance and enjoy shopping!',
     'stacks': [
+      'React',
       'Vite',
     ]
   },
